@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.tw-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 600;
+}
+.tw-btn-blue {
+  background-color: #3490dc;
+  color: #fff;
+}
+.tw-btn-blue:hover {
+  background-color: #2779bd;
+}
+.tw-btn-red {
+  background-color: #e3342f;
+  color: #fff;
+}
+.tw-btn-red:hover {
+  background-color: #cc1f1a;
+}
+
+.background {
+  background-image: url(" ../../../../assets/background.png");
+  background-position: left top;
+  background-size: cover;
+}
+.player {
+  transform: translateX(30px);
+  transform: translateY(30px);
+}

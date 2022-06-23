@@ -1,0 +1,23 @@
+
+.top1{
+    position: absolute;
+    width: 22px;
+    left: 19.5px;
+    top: 12px;
+}
+
+.top2{
+    position: absolute;
+    width: 22px;
+    left: 19.5px;
+    top: 39.5px;
+}
+
+.top3 {
+  position: absolute;
+  width: 22px;
+  left: 19.5px;
+  top: 67px;  
+}
+
+/* 27,5 é a diferença do top */

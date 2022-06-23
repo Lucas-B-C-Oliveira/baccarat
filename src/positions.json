@@ -1,0 +1,1521 @@
+{
+  "up": {
+    "columns": {
+      "column1": [
+        {
+          "x": 54.5,
+          "y": 47.5,
+          "xPercent": 2.8,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 54.5,
+          "y": 96,
+          "xPercent": 2.8,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 54.5,
+          "y": 144.5,
+          "xPercent": 2.8,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 54.5,
+          "y": 193,
+          "xPercent": 2.8,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 54.5,
+          "y": 241.5,
+          "xPercent": 2.8,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 54.5,
+          "y": 289.5,
+          "xPercent": 2.8,
+          "yPercent": 26.8
+        }
+      ],
+      "column2": [
+        {
+          "x": 103,
+          "y": 47.5,
+          "xPercent": 5.4,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 103,
+          "y": 96,
+          "xPercent": 5.4,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 103,
+          "y": 144.5,
+          "xPercent": 5.4,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 103,
+          "y": 193,
+          "xPercent": 5.4,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 103,
+          "y": 241.5,
+          "xPercent": 5.4,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 103,
+          "y": 289.5,
+          "xPercent": 5.4,
+          "yPercent": 26.8
+        }
+      ],
+      "column3": [
+        {
+          "x": 154,
+          "y": 47.5,
+          "xPercent": 8,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 154,
+          "y": 96,
+          "xPercent": 8,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 154,
+          "y": 144.5,
+          "xPercent": 8,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 154,
+          "y": 193,
+          "xPercent": 8,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 154,
+          "y": 241.5,
+          "xPercent": 8,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 154,
+          "y": 289.5,
+          "xPercent": 8,
+          "yPercent": 26.8
+        }
+      ],
+      "column4": [
+        {
+          "x": 206,
+          "y": 47.5,
+          "xPercent": 10.7,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 206,
+          "y": 96,
+          "xPercent": 10.7,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 206,
+          "y": 144.5,
+          "xPercent": 10.7,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 206,
+          "y": 193,
+          "xPercent": 10.7,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 206,
+          "y": 241.5,
+          "xPercent": 10.7,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 206,
+          "y": 289.5,
+          "xPercent": 10.7,
+          "yPercent": 26.8
+        }
+      ],
+      "column5": [
+        {
+          "x": 258,
+          "y": 47.5,
+          "xPercent": 13.4,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 258,
+          "y": 96,
+          "xPercent": 13.4,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 258,
+          "y": 144.5,
+          "xPercent": 13.4,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 258,
+          "y": 193,
+          "xPercent": 13.4,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 258,
+          "y": 241.5,
+          "xPercent": 13.4,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 258,
+          "y": 289.5,
+          "xPercent": 13.4,
+          "yPercent": 26.8
+        }
+      ],
+      "column6": [
+        {
+          "x": 310,
+          "y": 47.5,
+          "xPercent": 16.1,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 310,
+          "y": 96,
+          "xPercent": 16.1,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 310,
+          "y": 144.5,
+          "xPercent": 16.1,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 310,
+          "y": 193,
+          "xPercent": 16.1,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 310,
+          "y": 241.5,
+          "xPercent": 16.1,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 310,
+          "y": 289.5,
+          "xPercent": 16.1,
+          "yPercent": 26.8
+        }
+      ],
+      "column7": [
+        {
+          "x": 362,
+          "y": 47.5,
+          "xPercent": 18.9,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 362,
+          "y": 96,
+          "xPercent": 18.9,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 362,
+          "y": 144.5,
+          "xPercent": 18.9,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 362,
+          "y": 193,
+          "xPercent": 18.9,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 362,
+          "y": 241.5,
+          "xPercent": 18.9,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 362,
+          "y": 289.5,
+          "xPercent": 18.9,
+          "yPercent": 26.8
+        }
+      ],
+      "column8": [
+        {
+          "x": 414,
+          "y": 47.5,
+          "xPercent": 21.6,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 414,
+          "y": 96,
+          "xPercent": 21.6,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 414,
+          "y": 144.5,
+          "xPercent": 21.6,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 414,
+          "y": 193,
+          "xPercent": 21.6,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 414,
+          "y": 241.5,
+          "xPercent": 21.6,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 414,
+          "y": 289.5,
+          "xPercent": 21.6,
+          "yPercent": 26.8
+        }
+      ],
+      "column9": [
+        {
+          "x": 466,
+          "y": 47.5,
+          "xPercent": 24.3,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 466,
+          "y": 96,
+          "xPercent": 24.3,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 466,
+          "y": 144.5,
+          "xPercent": 24.3,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 466,
+          "y": 193,
+          "xPercent": 24.3,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 466,
+          "y": 241.5,
+          "xPercent": 24.3,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 466,
+          "y": 289.5,
+          "xPercent": 24.3,
+          "yPercent": 26.8
+        }
+      ],
+      "column10": [
+        {
+          "x": 518,
+          "y": 47.5,
+          "xPercent": 27,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 518,
+          "y": 96,
+          "xPercent": 27,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 518,
+          "y": 144.5,
+          "xPercent": 27,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 518,
+          "y": 193,
+          "xPercent": 27,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 518,
+          "y": 241.5,
+          "xPercent": 27,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 518,
+          "y": 289.5,
+          "xPercent": 27,
+          "yPercent": 26.8
+        }
+      ],
+      "column11": [
+        {
+          "x": 570,
+          "y": 47.5,
+          "xPercent": 29.7,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 570,
+          "y": 96,
+          "xPercent": 29.7,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 570,
+          "y": 144.5,
+          "xPercent": 29.7,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 570,
+          "y": 193,
+          "xPercent": 29.7,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 570,
+          "y": 241.5,
+          "xPercent": 29.7,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 570,
+          "y": 289.5,
+          "xPercent": 29.7,
+          "yPercent": 26.8
+        }
+      ],
+      "column12": [
+        {
+          "x": 622,
+          "y": 47.5,
+          "xPercent": 32.4,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 622,
+          "y": 96,
+          "xPercent": 32.4,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 622,
+          "y": 144.5,
+          "xPercent": 32.4,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 622,
+          "y": 193,
+          "xPercent": 32.4,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 622,
+          "y": 241.5,
+          "xPercent": 32.4,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 622,
+          "y": 289.5,
+          "xPercent": 32.4,
+          "yPercent": 26.8
+        }
+      ],
+      "column13": [
+        {
+          "x": 674,
+          "y": 47.5,
+          "xPercent": 35.1,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 674,
+          "y": 96,
+          "xPercent": 35.1,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 674,
+          "y": 144.5,
+          "xPercent": 35.1,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 674,
+          "y": 193,
+          "xPercent": 35.1,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 674,
+          "y": 241.5,
+          "xPercent": 35.1,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 674,
+          "y": 289.5,
+          "xPercent": 35.1,
+          "yPercent": 26.8
+        }
+      ],
+      "column14": [
+        {
+          "x": 725.5,
+          "y": 47.5,
+          "xPercent": 37.8,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 725.5,
+          "y": 96,
+          "xPercent": 37.8,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 725.5,
+          "y": 144.5,
+          "xPercent": 37.8,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 725.5,
+          "y": 193,
+          "xPercent": 37.8,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 725.5,
+          "y": 241.5,
+          "xPercent": 37.8,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 725.5,
+          "y": 289.5,
+          "xPercent": 37.8,
+          "yPercent": 26.8
+        }
+      ],
+      "column15": [
+        {
+          "x": 777,
+          "y": 47.5,
+          "xPercent": 40.5,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 777,
+          "y": 96,
+          "xPercent": 40.5,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 777,
+          "y": 144.5,
+          "xPercent": 40.5,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 777,
+          "y": 193,
+          "xPercent": 40.5,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 777,
+          "y": 241.5,
+          "xPercent": 40.5,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 777,
+          "y": 289.5,
+          "xPercent": 40.5,
+          "yPercent": 26.8
+        }
+      ],
+      "column16": [
+        {
+          "x": 829,
+          "y": 47.5,
+          "xPercent": 43.2,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 829,
+          "y": 96,
+          "xPercent": 43.2,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 829,
+          "y": 144.5,
+          "xPercent": 43.2,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 829,
+          "y": 193,
+          "xPercent": 43.2,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 829,
+          "y": 241.5,
+          "xPercent": 43.2,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 829,
+          "y": 289.5,
+          "xPercent": 43.2,
+          "yPercent": 26.8
+        }
+      ],
+      "column17": [
+        {
+          "x": 881,
+          "y": 47.5,
+          "xPercent": 45.9,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 881,
+          "y": 96,
+          "xPercent": 45.9,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 881,
+          "y": 144.5,
+          "xPercent": 45.9,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 881,
+          "y": 193,
+          "xPercent": 45.9,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 881,
+          "y": 241.5,
+          "xPercent": 45.9,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 881,
+          "y": 289.5,
+          "xPercent": 45.9,
+          "yPercent": 26.8
+        }
+      ],
+      "column18": [
+        {
+          "x": 933,
+          "y": 47.5,
+          "xPercent": 48.6,
+          "yPercent": 4.4
+        },
+
+        {
+          "x": 933,
+          "y": 96,
+          "xPercent": 48.6,
+          "yPercent": 8.9
+        },
+
+        {
+          "x": 933,
+          "y": 144.5,
+          "xPercent": 48.6,
+          "yPercent": 13.4
+        },
+
+        {
+          "x": 933,
+          "y": 193,
+          "xPercent": 48.6,
+          "yPercent": 17.9
+        },
+
+        {
+          "x": 933,
+          "y": 241.5,
+          "xPercent": 48.6,
+          "yPercent": 22.4
+        },
+
+        {
+          "x": 933,
+          "y": 289.5,
+          "xPercent": 48.6,
+          "yPercent": 26.8
+        }
+      ]
+    },
+    "positionsInSequence": [
+      {
+        "x": 54.5,
+        "y": 47.5,
+        "xPercent": 2.8,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 54.5,
+        "y": 96,
+        "xPercent": 2.8,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 54.5,
+        "y": 144.5,
+        "xPercent": 2.8,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 54.5,
+        "y": 193,
+        "xPercent": 2.8,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 54.5,
+        "y": 241.5,
+        "xPercent": 2.8,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 54.5,
+        "y": 289.5,
+        "xPercent": 2.8,
+        "yPercent": 26.8
+      },
+      {
+        "x": 103,
+        "y": 47.5,
+        "xPercent": 5.4,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 103,
+        "y": 96,
+        "xPercent": 5.4,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 103,
+        "y": 144.5,
+        "xPercent": 5.4,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 103,
+        "y": 193,
+        "xPercent": 5.4,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 103,
+        "y": 241.5,
+        "xPercent": 5.4,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 103,
+        "y": 289.5,
+        "xPercent": 5.4,
+        "yPercent": 26.8
+      },
+      {
+        "x": 154,
+        "y": 47.5,
+        "xPercent": 8,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 154,
+        "y": 96,
+        "xPercent": 8,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 154,
+        "y": 144.5,
+        "xPercent": 8,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 154,
+        "y": 193,
+        "xPercent": 8,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 154,
+        "y": 241.5,
+        "xPercent": 8,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 154,
+        "y": 289.5,
+        "xPercent": 8,
+        "yPercent": 26.8
+      },
+      {
+        "x": 206,
+        "y": 47.5,
+        "xPercent": 10.7,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 206,
+        "y": 96,
+        "xPercent": 10.7,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 206,
+        "y": 144.5,
+        "xPercent": 10.7,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 206,
+        "y": 193,
+        "xPercent": 10.7,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 206,
+        "y": 241.5,
+        "xPercent": 10.7,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 206,
+        "y": 289.5,
+        "xPercent": 10.7,
+        "yPercent": 26.8
+      },
+      {
+        "x": 258,
+        "y": 47.5,
+        "xPercent": 13.4,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 258,
+        "y": 96,
+        "xPercent": 13.4,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 258,
+        "y": 144.5,
+        "xPercent": 13.4,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 258,
+        "y": 193,
+        "xPercent": 13.4,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 258,
+        "y": 241.5,
+        "xPercent": 13.4,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 258,
+        "y": 289.5,
+        "xPercent": 13.4,
+        "yPercent": 26.8
+      },
+      {
+        "x": 310,
+        "y": 47.5,
+        "xPercent": 16.1,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 310,
+        "y": 96,
+        "xPercent": 16.1,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 310,
+        "y": 144.5,
+        "xPercent": 16.1,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 310,
+        "y": 193,
+        "xPercent": 16.1,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 310,
+        "y": 241.5,
+        "xPercent": 16.1,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 310,
+        "y": 289.5,
+        "xPercent": 16.1,
+        "yPercent": 26.8
+      },
+      {
+        "x": 362,
+        "y": 47.5,
+        "xPercent": 18.9,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 362,
+        "y": 96,
+        "xPercent": 18.9,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 362,
+        "y": 144.5,
+        "xPercent": 18.9,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 362,
+        "y": 193,
+        "xPercent": 18.9,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 362,
+        "y": 241.5,
+        "xPercent": 18.9,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 362,
+        "y": 289.5,
+        "xPercent": 18.9,
+        "yPercent": 26.8
+      },
+      {
+        "x": 414,
+        "y": 47.5,
+        "xPercent": 21.6,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 414,
+        "y": 96,
+        "xPercent": 21.6,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 414,
+        "y": 144.5,
+        "xPercent": 21.6,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 414,
+        "y": 193,
+        "xPercent": 21.6,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 414,
+        "y": 241.5,
+        "xPercent": 21.6,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 414,
+        "y": 289.5,
+        "xPercent": 21.6,
+        "yPercent": 26.8
+      },
+      {
+        "x": 466,
+        "y": 47.5,
+        "xPercent": 24.3,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 466,
+        "y": 96,
+        "xPercent": 24.3,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 466,
+        "y": 144.5,
+        "xPercent": 24.3,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 466,
+        "y": 193,
+        "xPercent": 24.3,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 466,
+        "y": 241.5,
+        "xPercent": 24.3,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 466,
+        "y": 289.5,
+        "xPercent": 24.3,
+        "yPercent": 26.8
+      },
+      {
+        "x": 518,
+        "y": 47.5,
+        "xPercent": 27,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 518,
+        "y": 96,
+        "xPercent": 27,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 518,
+        "y": 144.5,
+        "xPercent": 27,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 518,
+        "y": 193,
+        "xPercent": 27,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 518,
+        "y": 241.5,
+        "xPercent": 27,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 518,
+        "y": 289.5,
+        "xPercent": 27,
+        "yPercent": 26.8
+      },
+      {
+        "x": 570,
+        "y": 47.5,
+        "xPercent": 29.7,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 570,
+        "y": 96,
+        "xPercent": 29.7,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 570,
+        "y": 144.5,
+        "xPercent": 29.7,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 570,
+        "y": 193,
+        "xPercent": 29.7,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 570,
+        "y": 241.5,
+        "xPercent": 29.7,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 570,
+        "y": 289.5,
+        "xPercent": 29.7,
+        "yPercent": 26.8
+      },
+      {
+        "x": 622,
+        "y": 47.5,
+        "xPercent": 32.4,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 622,
+        "y": 96,
+        "xPercent": 32.4,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 622,
+        "y": 144.5,
+        "xPercent": 32.4,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 622,
+        "y": 193,
+        "xPercent": 32.4,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 622,
+        "y": 241.5,
+        "xPercent": 32.4,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 622,
+        "y": 289.5,
+        "xPercent": 32.4,
+        "yPercent": 26.8
+      },
+      {
+        "x": 674,
+        "y": 47.5,
+        "xPercent": 35.1,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 674,
+        "y": 96,
+        "xPercent": 35.1,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 674,
+        "y": 144.5,
+        "xPercent": 35.1,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 674,
+        "y": 193,
+        "xPercent": 35.1,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 674,
+        "y": 241.5,
+        "xPercent": 35.1,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 674,
+        "y": 289.5,
+        "xPercent": 35.1,
+        "yPercent": 26.8
+      },
+      {
+        "x": 725.5,
+        "y": 47.5,
+        "xPercent": 37.8,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 725.5,
+        "y": 96,
+        "xPercent": 37.8,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 725.5,
+        "y": 144.5,
+        "xPercent": 37.8,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 725.5,
+        "y": 193,
+        "xPercent": 37.8,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 725.5,
+        "y": 241.5,
+        "xPercent": 37.8,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 725.5,
+        "y": 289.5,
+        "xPercent": 37.8,
+        "yPercent": 26.8
+      },
+      {
+        "x": 777,
+        "y": 47.5,
+        "xPercent": 40.5,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 777,
+        "y": 96,
+        "xPercent": 40.5,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 777,
+        "y": 144.5,
+        "xPercent": 40.5,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 777,
+        "y": 193,
+        "xPercent": 40.5,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 777,
+        "y": 241.5,
+        "xPercent": 40.5,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 777,
+        "y": 289.5,
+        "xPercent": 40.5,
+        "yPercent": 26.8
+      },
+      {
+        "x": 829,
+        "y": 47.5,
+        "xPercent": 43.2,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 829,
+        "y": 96,
+        "xPercent": 43.2,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 829,
+        "y": 144.5,
+        "xPercent": 43.2,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 829,
+        "y": 193,
+        "xPercent": 43.2,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 829,
+        "y": 241.5,
+        "xPercent": 43.2,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 829,
+        "y": 289.5,
+        "xPercent": 43.2,
+        "yPercent": 26.8
+      },
+      {
+        "x": 881,
+        "y": 47.5,
+        "xPercent": 45.9,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 881,
+        "y": 96,
+        "xPercent": 45.9,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 881,
+        "y": 144.5,
+        "xPercent": 45.9,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 881,
+        "y": 193,
+        "xPercent": 45.9,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 881,
+        "y": 241.5,
+        "xPercent": 45.9,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 881,
+        "y": 289.5,
+        "xPercent": 45.9,
+        "yPercent": 26.8
+      },
+      {
+        "x": 933,
+        "y": 47.5,
+        "xPercent": 48.6,
+        "yPercent": 4.4
+      },
+
+      {
+        "x": 933,
+        "y": 96,
+        "xPercent": 48.6,
+        "yPercent": 8.9
+      },
+
+      {
+        "x": 933,
+        "y": 144.5,
+        "xPercent": 48.6,
+        "yPercent": 13.4
+      },
+
+      {
+        "x": 933,
+        "y": 193,
+        "xPercent": 48.6,
+        "yPercent": 17.9
+      },
+
+      {
+        "x": 933,
+        "y": 241.5,
+        "xPercent": 48.6,
+        "yPercent": 22.4
+      },
+
+      {
+        "x": 933,
+        "y": 289.5,
+        "xPercent": 48.6,
+        "yPercent": 26.8
+      }
+    ]
+  },
+  "down": {}
+}
