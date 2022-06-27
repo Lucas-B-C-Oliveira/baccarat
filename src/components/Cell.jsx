@@ -6,40 +6,25 @@ import EmptyBall from '../assets/ball-empty.png'
 
 
 
-function Cell({ position, image }) {
+function Cell({ position, image = 0 }) {
 
-
-  let newImage = EmptyBall
-
-  switch (image) {
-    case 0:
-      newImage = EmptyBall
-      break;
-
-    case 1:
-      newImage = Banker
-      break;
-
-    case 2:
-      newImage = Player
-      break;
-
-    case 3:
-      newImage = Natural
-      break;
-
-    case 4:
-      newImage = TieHands
-      break;
-
-    default:
-      newImage = EmptyBall
+  const newImage = {
+    0: EmptyBall,
+    1: Banker,
+    2: Player,
+    3: Natural,
+    4: TieHands
   }
 
+
   return (
-    <img className={position} src={newImage} />
-    // <div className={position}>
-    // </div>
+    <img
+      src={newImage[image]}
+      className='absolute h-[2.5rem] w-[2.5rem]'
+      style={{
+        top: position.y,
+        left: position.x,
+      }} />
   )
 
 }

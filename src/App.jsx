@@ -2,7 +2,6 @@ import Game from './components/Game.jsx'
 import Control from './components/Control.jsx'
 import { useRef, useState } from 'react'
 
-
 function App() {
 
   const [cellsOfUpInGame, setCellsOfUpInGame] = useState([])
@@ -10,6 +9,9 @@ function App() {
   const columnOfUp = useRef(0)
   const lineOfUp = useRef(0)
 
+  const X_AND_Y_POS_MULTIPLIER_OF_UP_CELL = 3.25
+  const Y_STARTING_POS_OF_UP_CELL = 1.9
+  const X_STARTING_POS_OF_UP_CELL = 2.2
 
   const updateCurrentMatch = (newImage) => {
 
@@ -17,12 +19,14 @@ function App() {
 
     if (currentMatch.current === 0) {
 
-      const posOfUpCell = 'absolute top-[1.9rem] left-[2.2rem]'
-      const sizeOfUpCell = 'h-[2.5rem] w-[2.5rem]'
+      const posOfUpCell = {
+        x: `${X_STARTING_POS_OF_UP_CELL}rem`,
+        y: `${Y_STARTING_POS_OF_UP_CELL}rem`
+      }
 
       const newCellOfUp = {
         key: currentMatch.current,
-        position: `${posOfUpCell} ${sizeOfUpCell}`,
+        position: posOfUpCell,
         image: newImage,
       }
 
@@ -39,21 +43,17 @@ function App() {
 
       }
 
+      const newYPosOfUpCell = Y_STARTING_POS_OF_UP_CELL + (X_AND_Y_POS_MULTIPLIER_OF_UP_CELL * lineOfUp.current)
+      const newXPosOfUpCell = X_STARTING_POS_OF_UP_CELL + (X_AND_Y_POS_MULTIPLIER_OF_UP_CELL * columnOfUp.current)
 
-      const yPosMultiplierOfUpCell = 3.25
-      const yStartingPosOfUpCell = 1.9
-      const newYPosOfUpCell = yStartingPosOfUpCell + (yPosMultiplierOfUpCell * lineOfUp.current)
-
-      const xPosMultiplierOfUpCell = 3.25
-      const xStartingPosOfUpCell = 2.2
-      const newXPosOfUpCell = xStartingPosOfUpCell + (xPosMultiplierOfUpCell * columnOfUp.current)
-
-      const posOfUpCell = `absolute top-[${newYPosOfUpCell}rem] left-[${newXPosOfUpCell}rem]`
-      const sizeOfUpCell = 'h-[2.5rem] w-[2.5rem]'
+      const posOfUpCell = {
+        x: `${newXPosOfUpCell}rem`,
+        y: `${newYPosOfUpCell}rem`
+      }
 
       const newCellOfUp = {
         key: currentMatch.current,
-        position: `${posOfUpCell} ${sizeOfUpCell}`,
+        position: posOfUpCell,
         image: newImage,
       }
 
@@ -69,6 +69,18 @@ function App() {
     <>
       <Game cellsOfUpInGame={cellsOfUpInGame} />
       <Control updateCurrentMatch={updateCurrentMatch} />
+      <button
+        onClick={() => {
+          setCellsOfUpInGame([])
+          currentMatch.current = 0
+          columnOfUp.current = 0
+          lineOfUp.current = 0
+        }}
+        type="button"
+        className="tw-btn-red"
+      >LIMPAR!!!!
+      </button>
+
     </>
   )
 }
