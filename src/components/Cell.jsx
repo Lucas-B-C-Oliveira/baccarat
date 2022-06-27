@@ -1,12 +1,13 @@
-import Banker from '../../assets/red-ball.png'
-import Player from '../../assets/blue-ball.png'
-import Natural from '../../assets/yellow-ball.png'
-import TieHands from '../../assets/green-ball.png'
-import EmptyBall from '../../assets/ball-empty.png'
+import Banker from '../assets/red-ball.png'
+import Player from '../assets/blue-ball.png'
+import Natural from '../assets/yellow-ball.png'
+import TieHands from '../assets/green-ball.png'
+import EmptyBall from '../assets/ball-empty.png'
 
 
 
 function Cell({ position, image }) {
+
 
   let newImage = EmptyBall
 

@@ -1,80 +1,67 @@
 import Game from './components/Game.jsx'
 import Control from './components/Control.jsx'
-import { useState } from 'react'
-
-import './styles/global.css'
+import { useRef, useState } from 'react'
 
 
 function App() {
 
-  const [currentMatch, setCurrentMatch] = useState(0)
-
   const [cellsOfUpInGame, setCellsOfUpInGame] = useState([])
-  const [columnOfUp, setColumnOfUp] = useState(0)
-  const [lineOfUp, setLineOfUp] = useState(0)
+  const currentMatch = useRef(0)
+  const columnOfUp = useRef(0)
+  const lineOfUp = useRef(0)
 
 
   const updateCurrentMatch = (newImage) => {
 
-    if (currentMatch > 107) return
+    if (currentMatch.current > 107) return
 
-    const newMatch = currentMatch + 1
-
-    const oldCellsOfUpInGame = cellsOfUpInGame
-
-    let newColumnOfUp = columnOfUp
-    let newLineOfUp = lineOfUp
-
-
-    if (currentMatch === 0) {
+    if (currentMatch.current === 0) {
 
       const posOfUpCell = 'absolute top-[1.9rem] left-[2.2rem]'
       const sizeOfUpCell = 'h-[2.5rem] w-[2.5rem]'
 
       const newCellOfUp = {
-        key: currentMatch,
+        key: currentMatch.current,
         position: `${posOfUpCell} ${sizeOfUpCell}`,
         image: newImage,
       }
 
-      oldCellsOfUpInGame.push(newCellOfUp)
+      setCellsOfUpInGame(prevState => [...prevState, newCellOfUp])
 
     }
     else {
 
-      newLineOfUp++
+      lineOfUp.current = lineOfUp.current + 1
 
-      if (currentMatch % 6 === 0) {
-        newColumnOfUp++
-        newLineOfUp = 0
+      if (currentMatch.current % 6 === 0) {
+        columnOfUp.current = columnOfUp.current + 1
+        lineOfUp.current = 0
+
       }
 
 
       const yPosMultiplierOfUpCell = 3.25
       const yStartingPosOfUpCell = 1.9
-      const newYPosOfUpCell = yStartingPosOfUpCell + (yPosMultiplierOfUpCell * newLineOfUp)
+      const newYPosOfUpCell = yStartingPosOfUpCell + (yPosMultiplierOfUpCell * lineOfUp.current)
 
       const xPosMultiplierOfUpCell = 3.25
       const xStartingPosOfUpCell = 2.2
-      const newXPosOfUpCell = xStartingPosOfUpCell + (xPosMultiplierOfUpCell * newColumnOfUp)
+      const newXPosOfUpCell = xStartingPosOfUpCell + (xPosMultiplierOfUpCell * columnOfUp.current)
 
       const posOfUpCell = `absolute top-[${newYPosOfUpCell}rem] left-[${newXPosOfUpCell}rem]`
       const sizeOfUpCell = 'h-[2.5rem] w-[2.5rem]'
 
       const newCellOfUp = {
-        key: currentMatch,
+        key: currentMatch.current,
         position: `${posOfUpCell} ${sizeOfUpCell}`,
         image: newImage,
       }
 
-      oldCellsOfUpInGame.push(newCellOfUp)
+      setCellsOfUpInGame(prevState => [...prevState, newCellOfUp])
 
     }
 
-    setCellsOfUpInGame(oldCellsOfUpInGame)
-    setColumnOfUp(newColumnOfUp)
-    setLineOfUp(newLineOfUp)
-    setCurrentMatch(newMatch)
+    currentMatch.current = currentMatch.current + 1
 
   }
 

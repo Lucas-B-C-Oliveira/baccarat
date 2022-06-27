@@ -2,10 +2,11 @@
 module.exports = {
   content: ['./src/**/*.jsx'],
   theme: {
-    extend: {},
-    // backgroundImage: {
-    //   'pack-train': "url('./assets/background.png')",
-    // }
+    extend: {
+      backgroundImage: {
+        main: 'url(/src/assets/main-bg.png)'
+      },
+    },
   },
   plugins: [],
 }
