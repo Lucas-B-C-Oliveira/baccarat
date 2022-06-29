@@ -2,28 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-.tw-btn {
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  font-weight: 600;
-}
-.tw-btn-blue {
-  background-color: #3490dc;
-  color: #fff;
-}
-.tw-btn-blue:hover {
-  background-color: #2779bd;
-}
-.tw-btn-red {
-  background-color: #e3342f;
-  color: #fff;
-}
-.tw-btn-red:hover {
-  background-color: #cc1f1a;
+.redBar {
+  background-image: linear-gradient(
+    #f66262,
+    #f66262,
+    #f65a59,
+    #f65a59,
+    #f24e4d,
+    #f24e4d,
+    #ee4342,
+    #ee4342,
+    #d71312,
+    #c10e0c,
+    #c00e0c,
+    #b21311,
+    #af100f,
+    #ae0c0b
+  );
 }
 
-/* .background {
-  background-image: url(" ../../../../assets/background.png");
-  background-position: left top;
-  background-size: cover;
-} */
+.blueBar {
+  background-image: linear-gradient(
+    #909ee7,
+    #7c8ce4,
+    #7487e4,
+    #697ee4,
+    #6474e4,
+    #576bdb,
+    #475fcc,
+    #4054c0,
+    #344cb4,
+    #203394,
+    #203394,
+    #203394,
+    #203394,
+    #203394,
+    #203394,
+    #203394
+  );
+}
+.greenBar {
+  background-image: linear-gradient(
+    #90df99,
+    #84dc8c,
+    #7cd484,
+    #66cc71,
+    #54c45c,
+    #48bc54,
+    #3cb848,
+    #2cac3c,
+    #1e922c,
+    #14711f,
+    #14711f,
+    #14711f,
+    #14711f,
+    #14711f,
+    #14711f,
+    #14711f
+  );
+}

@@ -12,8 +12,8 @@ function Cell({ position, image = 0 }) {
     0: EmptyBall,
     1: Banker,
     2: Player,
-    3: Natural,
-    4: TieHands
+    3: TieHands,
+    4: Natural
   }
 
 

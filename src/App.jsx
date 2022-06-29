@@ -1,12 +1,15 @@
 import Game from './components/Game.jsx'
 import Control from './components/Control.jsx'
-import { useRef, useState } from 'react'
+import { useEffect, useReducer, useRef, useState } from 'react'
 
 function App() {
 
   const [cellsOfTopInGame, setCellsOfTopInGame] = useState([])
   const [cellsOfBottomInGame, setCellsOfBottomInGame] = useState([])
+  const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
+
   const currentMatch = useRef(0)
+
   const columnOfTop = useRef(0)
   const lineOfTop = useRef(0)
 
@@ -29,10 +32,30 @@ function App() {
 
   const X_STARTING_POS_OF_CELL = 2.2
 
+  /// #### Bar Variables
+
+  const numberOfBankerInGame = useRef(0)
+  const numberOfPlayerInGame = useRef(0)
+  const numberOfTieInGame = useRef(0)
+  const numberOfBallsInGame = useRef(0)
+
+  const percentOfBankerInGame = useRef(0)
+  const percentOfPlayerInGame = useRef(0)
+  const percentOfTieInGame = useRef(0)
+
+  const percentOfBankerForBar = useRef(0)
+  const percentOfPlayerForBar = useRef(0)
+  const percentOfTieForBar = useRef(0)
+
+
   const updateCurrentMatch = (newImage) => {
 
     if (currentMatch.current > 107) return
 
+    if (newImage !== 4) {
+      numberOfBallsInGame.current = numberOfBallsInGame.current + 1
+      updateBar(newImage, numberOfBallsInGame.current)
+    }
     if (currentMatch.current === 0) {
 
       /// ##### Top Cells
@@ -157,7 +180,7 @@ function App() {
 
         }
 
-        console.log(columnOfBottom.current)
+        // console.log(columnOfBottom.current)
 
         // if (columnOfBottom.current + 1 >= 35) {
         //   columnOfBottom.current = -1
@@ -189,15 +212,85 @@ function App() {
 
 
     }
-
     currentMatch.current = currentMatch.current + 1
-
   }
+
+
+  const updateBar = (newBall = 0, numberOfBallsInGame = 0, isFirstRender = false) => {
+
+
+    switch (newBall) {
+      case 1:
+        numberOfBankerInGame.current = numberOfBankerInGame.current + 1
+        break;
+      case 2:
+        numberOfPlayerInGame.current = numberOfPlayerInGame.current + 1
+        break;
+      case 3:
+        numberOfTieInGame.current = numberOfTieInGame.current + 1
+        break;
+    }
+
+    percentOfBankerInGame.current = numberOfBallsInGame != 0 ? (numberOfBankerInGame.current * 100) / numberOfBallsInGame : 0
+    percentOfPlayerInGame.current = numberOfBallsInGame != 0 ? (numberOfPlayerInGame.current * 100) / numberOfBallsInGame : 0
+    percentOfTieInGame.current = numberOfBallsInGame != 0 ? (numberOfTieInGame.current * 100) / numberOfBallsInGame : 0
+
+    percentOfBankerForBar.current = percentOfBankerInGame.current
+    percentOfPlayerForBar.current = percentOfPlayerInGame.current
+    percentOfTieForBar.current = percentOfTieInGame.current
+
+    let numberOfZero = 0
+    let nonZeroNumber = 0
+
+    if (percentOfBankerInGame.current === 0) numberOfZero++; else nonZeroNumber++
+    if (percentOfPlayerInGame.current === 0) numberOfZero++; else nonZeroNumber++
+    if (percentOfTieInGame.current === 0) numberOfZero++; else nonZeroNumber++
+
+    if (percentOfBankerInGame.current === 0 || percentOfPlayerInGame.current === 0 || percentOfTieInGame.current === 0) {
+
+      percentOfBankerInGame.current = percentOfBankerInGame.current === 0 ? 10 : percentOfBankerInGame.current - (numberOfZero * (10 / nonZeroNumber))
+      percentOfPlayerInGame.current = percentOfPlayerInGame.current === 0 ? 10 : percentOfPlayerInGame.current - (numberOfZero * (10 / nonZeroNumber))
+      percentOfTieInGame.current = percentOfTieInGame.current === 0 ? 10 : percentOfTieInGame.current - (numberOfZero * (10 / nonZeroNumber))
+
+      if (percentOfBankerInGame.current === 10) percentOfBankerForBar.current = 0
+      if (percentOfPlayerInGame.current === 10) percentOfPlayerForBar.current = 0
+      if (percentOfTieInGame.current === 10) percentOfTieForBar.current = 0
+
+      if (numberOfZero === 3) {
+        percentOfBankerInGame.current = 33.3399
+        percentOfPlayerInGame.current = 33.3399
+        percentOfTieInGame.current = 33.3399
+
+        percentOfBankerForBar.current = 0
+        percentOfPlayerForBar.current = 0
+        percentOfTieForBar.current = 0
+      }
+    }
+    if (isFirstRender) forceUpdate()
+  }
+
+  useEffect(() => {
+    updateBar(0, 0, true)
+  }, [])
+
 
   return (
     <>
       <Game cellsOfTopInGame={cellsOfTopInGame} cellsOfBottomInGame={cellsOfBottomInGame} />
-      <Control updateCurrentMatch={updateCurrentMatch} />
+
+      <div className="relative top-[-50.9em] left-[62.7em]">
+        <div className="overflow-hidden w-[858px] h-[54px] text-3xl flex rounded-[30px] border-solid border-slate-900 border-[1px]">
+          <div style={{ width: `${percentOfBankerInGame.current}%` }} className="rounded-l-[30px] redBar shadow-none flex flex-col text-center whitespace-nowrap text-black justify-center">{`${Math.round(percentOfBankerForBar.current)}%`}</div>
+          <div style={{ width: `${percentOfPlayerInGame.current}%` }} className="blueBar shadow-none flex flex-col text-center whitespace-nowrap text-black justify-center">{`${Math.round(percentOfPlayerForBar.current)}%`}</div>
+          <div style={{ width: `${percentOfTieInGame.current}%` }} className="rounded-r-[30px] greenBar shadow-none flex flex-col text-center whitespace-nowrap text-black justify-center">{`${Math.round(percentOfTieForBar.current)}%`}</div>
+        </div>
+      </div>
+
+      <button onClick={() => updateCurrentMatch(1)} className="text-white rounded-2xl text-3xl w-[120px] h-[50px] mx-2 bg-red-600 hover:bg-red-400 hover:text-black transition-colors">Banker</button>
+      <button onClick={() => updateCurrentMatch(2)} className="text-white rounded-2xl text-3xl w-[120px] h-[50px] mx-2 bg-blue-600 hover:bg-blue-400 hover:text-black transition-colors">Player</button>
+      <button onClick={() => updateCurrentMatch(3)} className="text-white rounded-2xl text-3xl w-[120px] h-[50px] mx-2 bg-green-500 hover:bg-green-300 hover:text-black transition-colors">Tie</button>
+      <button onClick={() => updateCurrentMatch(4)} className="text-white rounded-2xl text-3xl w-[120px] h-[50px] mx-2 bg-yellow-500 hover:bg-yellow-300 hover:text-black transition-colors">Natural</button>
+
       <button
         onClick={() => {
           setCellsOfTopInGame([])
@@ -205,11 +298,9 @@ function App() {
           columnOfTop.current = 0
           lineOfTop.current = 0
         }}
-        type="button"
-        className="tw-btn-red"
-      >LIMPAR!!!!
+        className="text-white rounded-2xl text-3xl w-[120px] h-[50px] mx-8 bg-sky-600 hover:bg-red-400 hover:text-black transition-colors"
+      >LIMPAR
       </button>
-
     </>
   )
 }
