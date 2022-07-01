@@ -17,19 +17,18 @@ function Game() {
   const currentMatch = useRef(0)
 
   const columnOfTop = useRef(0)
-  const lineOfTop = useRef(0)
+  const rowOfTop = useRef(0)
 
-  const lineOfBottom = useRef(0)
+  const rowOfBottom = useRef(0)
   const columnOfBottom = useRef(0)
 
-  const lastLockedLineOfBottom = useRef(7)
+  const lastLockedRowOfBottom = useRef(7)
   const oldBallOfBottomCell = useRef(0)
   const oldCorrectColumnOfBottomCell = useRef(0)
-  const oldCorrectLineOfBottomCell = useRef(0)
   const lastLockedColumnOfBottom = useRef(0)
-  const initialLineFree = useRef(0)
-  const wasInALongSequence = useRef(false)
-  const lastFreeLineOfLockedColumn = useRef(false)
+  const initialRowFree = useRef(0)
+  const wasInALongSequenceOfEqualsBalls = useRef(false)
+  const needToLockANewRow = useRef(false)
 
   const X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL = 3.25
 
@@ -69,162 +68,168 @@ function Game() {
     if (currentMatch.current > 107) return
 
     if (newImage !== 4) {
+      /// ### Update Main Bar
       numberOfBallsInGame.current = numberOfBallsInGame.current + 1
       updateBar(newImage, numberOfBallsInGame.current)
     }
-    if (currentMatch.current === 0) {
 
-      /// ##### Top Cells
+    // if (currentMatch.current === 0) {
 
-      const posOfTopCell = {
-        x: `${X_STARTING_POS_OF_CELL}rem`,
-        y: `${Y_STARTING_POS_OF_TOP_CELL}rem`
-      }
+    //   /// ##### Top Cells
 
-      const newCellOfTop = {
-        key: currentMatch.current,
-        position: posOfTopCell,
-        image: newImage,
-      }
+    //   const posOfTopCell = {
+    //     x: `${X_STARTING_POS_OF_CELL}rem`,
+    //     y: `${Y_STARTING_POS_OF_TOP_CELL}rem`
+    //   }
 
-      /// ##### Bottom Cells
+    //   const newCellOfTop = {
+    //     key: currentMatch.current,
+    //     position: posOfTopCell,
+    //     image: newImage,
+    //   }
 
-      const posOfBottomCell = {
-        x: `${X_STARTING_POS_OF_CELL}rem`,
-        y: `${Y_STARTING_POS_OF_BOTTOM_CELL}rem`
-      }
+    //   /// ##### Bottom Cells
 
-      const newCellOfBottom = {
-        key: currentMatch.current,
-        position: posOfBottomCell,
-        image: newImage,
-      }
+    //   const posOfBottomCell = {
+    //     x: `${X_STARTING_POS_OF_CELL}rem`,
+    //     y: `${Y_STARTING_POS_OF_BOTTOM_CELL}rem`
+    //   }
 
-      setCellsOfBottomInGame(prevState => [...prevState, newCellOfBottom])
-      setCellsOfTopInGame(prevState => [...prevState, newCellOfTop])
-      oldBallOfBottomCell.current = newImage
+    //   const newCellOfBottom = {
+    //     key: currentMatch.current,
+    //     position: posOfBottomCell,
+    //     image: newImage,
+    //   }
 
+    //   setCellsOfBottomInGame(prevState => [...prevState, newCellOfBottom])
+    //   setCellsOfTopInGame(prevState => [...prevState, newCellOfTop])
+    //   oldBallOfBottomCell.current = newImage
+
+    // }
+    // else {
+
+    if ((currentMatch.current % 6 === 0 && currentMatch.current != 0)) {
+      columnOfTop.current = columnOfTop.current + 1
+      rowOfTop.current = 0
     }
-    else {
 
-      lineOfTop.current = lineOfTop.current + 1
+    const newYPosOfTopCell = Y_STARTING_POS_OF_TOP_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * rowOfTop.current)
+    const newXPosOfTopCell = X_STARTING_POS_OF_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * columnOfTop.current)
 
-      if (currentMatch.current % 6 === 0) {
-        columnOfTop.current = columnOfTop.current + 1
-        lineOfTop.current = 0
+    const posOfTopCell = {
+      x: `${newXPosOfTopCell}rem`,
+      y: `${newYPosOfTopCell}rem`
+    }
 
-      }
+    const newCellOfTop = {
+      key: currentMatch.current + 10000,
+      position: posOfTopCell,
+      image: newImage,
+    }
 
-      const newYPosOfTopCell = Y_STARTING_POS_OF_TOP_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * lineOfTop.current)
-      const newXPosOfTopCell = X_STARTING_POS_OF_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * columnOfTop.current)
+    rowOfTop.current = rowOfTop.current + 1
 
-      const posOfTopCell = {
-        x: `${newXPosOfTopCell}rem`,
-        y: `${newYPosOfTopCell}rem`
-      }
-
-      const newCellOfTop = {
-        key: currentMatch.current,
-        position: posOfTopCell,
-        image: newImage,
-      }
-
-      /// ##### Bottom Cells
-
-      let newYPosOfBottomCell = 0
-      let newXPosOfBottomCell = 0
+    /// 5 - 11 - 17 - 23 - 29 - 35 - 41 - 47 - 53  59 - 65
 
 
 
-      if (oldBallOfBottomCell.current === newImage) {
 
-        /// #### Put the ball down
+    /// ##### Bottom Cells
+
+    let newYPosOfBottomCell = 0
+    let newXPosOfBottomCell = 0
 
 
-        if (lineOfBottom.current === lastLockedLineOfBottom.current) {
+    if (columnOfBottom.current >= 35) {
+      // TODO: Need implement the function updateANewTableGame
+    }
 
-          columnOfBottom.current = columnOfBottom.current + 1
+    if (oldBallOfBottomCell.current === newImage) {
 
-          newYPosOfBottomCell = Y_STARTING_POS_OF_BOTTOM_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * lastLockedLineOfBottom.current)
-          newXPosOfBottomCell = X_STARTING_POS_OF_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * columnOfBottom.current)
+      lastLockedRowOfBottom.current = columnOfBottom.current > lastLockedColumnOfBottom.current ? 7 : lastLockedRowOfBottom.current
 
-          lastLockedColumnOfBottom.current = columnOfBottom.current
-          lastFreeLineOfLockedColumn.current = true
+      if (rowOfBottom.current === lastLockedRowOfBottom.current) {
 
-        }
-        else {
+        /// ### Moving the ball to the LEFT, modifying the COLUMN
 
-          lineOfBottom.current = lineOfBottom.current + 1
-          oldCorrectColumnOfBottomCell.current = columnOfBottom.current
+        columnOfBottom.current = columnOfBottom.current + 1
 
-          wasInALongSequence.current = true
-          lastLockedColumnOfBottom.current = columnOfBottom.current
-          oldCorrectLineOfBottomCell.current = lineOfBottom.current
+        newYPosOfBottomCell = Y_STARTING_POS_OF_BOTTOM_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * lastLockedRowOfBottom.current)
+        newXPosOfBottomCell = X_STARTING_POS_OF_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * columnOfBottom.current)
 
-          newYPosOfBottomCell = Y_STARTING_POS_OF_BOTTOM_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * lineOfBottom.current)
-          newXPosOfBottomCell = X_STARTING_POS_OF_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * columnOfBottom.current)
-        }
+        lastLockedColumnOfBottom.current = columnOfBottom.current
+        needToLockANewRow.current = true
 
       }
       else {
 
-        lineOfBottom.current = initialLineFree.current
+        /// #### Put the ball in DOWN
 
-        if (wasInALongSequence.current) {
-          columnOfBottom.current = oldCorrectColumnOfBottomCell.current
-          wasInALongSequence.current = false
-        }
+        rowOfBottom.current = rowOfBottom.current + 1
+        oldCorrectColumnOfBottomCell.current = columnOfBottom.current
+        wasInALongSequenceOfEqualsBalls.current = true
 
-        if (lastFreeLineOfLockedColumn.current) {
-          lastLockedLineOfBottom.current = lastLockedLineOfBottom.current - 1
-          lastFreeLineOfLockedColumn.current = false
-
-        }
-
-        if (columnOfBottom.current >= 35) {
-          initialLineFree.current = initialLineFree.current + 1
-          columnOfBottom.current = lastLockedColumnOfBottom.current
-
-
-          if (oldCorrectLineOfBottomCell.current < (initialLineFree.current + 1)) {
-
-            lastLockedColumnOfBottom.current = -1
-          }
-
-        }
-
-        // console.log(columnOfBottom.current)
-
-        // if (columnOfBottom.current + 1 >= 35) {
-        //   columnOfBottom.current = -1
-        // }
-
-        columnOfBottom.current = columnOfBottom.current + 1
-
-        newYPosOfBottomCell = Y_STARTING_POS_OF_BOTTOM_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * initialLineFree.current)
+        newYPosOfBottomCell = Y_STARTING_POS_OF_BOTTOM_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * rowOfBottom.current)
         newXPosOfBottomCell = X_STARTING_POS_OF_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * columnOfBottom.current)
-
       }
-
-      const posOfBottomCell = {
-        x: `${newXPosOfBottomCell}rem`,
-        y: `${newYPosOfBottomCell}rem`
-      }
-
-      const newCellOfBottom = {
-        key: currentMatch.current,
-        position: posOfBottomCell,
-        image: newImage,
-      }
-
-
-      //////_____________________
-      oldBallOfBottomCell.current = newImage
-      setCellsOfTopInGame(prevState => [...prevState, newCellOfTop])
-      setCellsOfBottomInGame(prevState => [...prevState, newCellOfBottom])
-
 
     }
+    else {
+
+      /// Put the ball in LEFT
+
+      if (columnOfBottom.current >= 35) {
+        columnOfBottom.current = 0
+        rowOfBottom.current = 0
+        oldCorrectColumnOfBottomCell.current = 0
+        wasInALongSequenceOfEqualsBalls.current = false
+        needToLockANewRow.current = false
+        lastLockedRowOfBottom.current = 7
+        // TODO: Need implement the function updateANewTableGame
+
+      }
+
+      rowOfBottom.current = initialRowFree.current
+
+      if (wasInALongSequenceOfEqualsBalls.current) {
+        columnOfBottom.current = oldCorrectColumnOfBottomCell.current
+        wasInALongSequenceOfEqualsBalls.current = false
+      }
+
+      if (needToLockANewRow.current) {
+        /// Need to block a new row when the sequence of like balls has reached a limit
+        lastLockedRowOfBottom.current = lastLockedRowOfBottom.current - 1
+        needToLockANewRow.current = false
+      }
+
+      columnOfBottom.current = currentMatch.current === 0 ? 0 : columnOfBottom.current + 1
+
+      newYPosOfBottomCell = Y_STARTING_POS_OF_BOTTOM_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * initialRowFree.current)
+      newXPosOfBottomCell = X_STARTING_POS_OF_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * columnOfBottom.current)
+
+    }
+
+    const posOfBottomCell = {
+      x: `${newXPosOfBottomCell}rem`,
+      y: `${newYPosOfBottomCell}rem`
+    }
+
+    const newCellOfBottom = {
+      key: currentMatch.current + 100,
+      position: posOfBottomCell,
+      image: newImage,
+    }
+
+
+    //////_____________________
+    oldBallOfBottomCell.current = newImage
+    setCellsOfTopInGame(prevState => [...prevState, newCellOfTop])
+    setCellsOfBottomInGame(prevState => [...prevState, newCellOfBottom])
+
+
+    // }
+
+
     currentMatch.current = currentMatch.current + 1
   }
 
@@ -292,7 +297,7 @@ function Game() {
       <div className="h-[1080px] w-[1920px] bg-main">
         {cellsOfTopInGame.map(cel => (
           <img
-            key={currentMatch + 118}
+            key={currentMatch.current + 118}
             src={newImage[cel.image]}
             className='absolute h-[2.5rem] w-[2.5rem]'
             style={{
@@ -304,7 +309,7 @@ function Game() {
 
         {cellsOfBottomInGame.map(cel => (
           <img
-            key={currentMatch + 1}
+            key={currentMatch.current + 1}
             src={newImage[cel.image]}
             className='absolute h-[2.5rem] w-[2.5rem]'
             style={{
@@ -333,7 +338,7 @@ function Game() {
           setCellsOfTopInGame([])
           currentMatch.current = 0
           columnOfTop.current = 0
-          lineOfTop.current = 0
+          rowOfTop.current = 0
         }}
         className="text-white rounded-2xl text-3xl w-[120px] h-[50px] mx-8 bg-sky-600 hover:bg-red-400 hover:text-black transition-colors"
       >LIMPAR
