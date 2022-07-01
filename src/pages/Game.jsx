@@ -151,9 +151,6 @@ function Game() {
           lastLockedColumnOfBottom.current = columnOfBottom.current
           lastFreeLineOfLockedColumn.current = true
 
-
-
-
         }
         else {
 
