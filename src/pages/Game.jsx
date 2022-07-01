@@ -213,22 +213,47 @@ function Game() {
     percentOfPlayerForBar.current = percentOfPlayerInGame.current
     percentOfTieForBar.current = percentOfTieInGame.current
 
-    let numberOfZero = 0
-    let nonZeroNumber = 0
-
-    if (percentOfBankerInGame.current === 0) numberOfZero++; else nonZeroNumber++
-    if (percentOfPlayerInGame.current === 0) numberOfZero++; else nonZeroNumber++
-    if (percentOfTieInGame.current === 0) numberOfZero++; else nonZeroNumber++
-
     if (percentOfBankerInGame.current === 0 || percentOfPlayerInGame.current === 0 || percentOfTieInGame.current === 0) {
 
-      percentOfBankerInGame.current = percentOfBankerInGame.current === 0 ? 10 : percentOfBankerInGame.current - (numberOfZero * (10 / nonZeroNumber))
-      percentOfPlayerInGame.current = percentOfPlayerInGame.current === 0 ? 10 : percentOfPlayerInGame.current - (numberOfZero * (10 / nonZeroNumber))
-      percentOfTieInGame.current = percentOfTieInGame.current === 0 ? 10 : percentOfTieInGame.current - (numberOfZero * (10 / nonZeroNumber))
+      let numberOfZero = 0
+      let nonZeroNumber = 0
 
-      if (percentOfBankerInGame.current === 10) percentOfBankerForBar.current = 0
-      if (percentOfPlayerInGame.current === 10) percentOfPlayerForBar.current = 0
-      if (percentOfTieInGame.current === 10) percentOfTieForBar.current = 0
+      let canIPutZeroInPercentOfBankerForBar = false
+      let canIPutZeroInPercentOfPlayerForBar = false
+      let canIPutZeroInPercentOfTieForBar = false
+
+      if (percentOfBankerInGame.current === 0) numberOfZero++; else nonZeroNumber++
+      if (percentOfPlayerInGame.current === 0) numberOfZero++; else nonZeroNumber++
+      if (percentOfTieInGame.current === 0) numberOfZero++; else nonZeroNumber++
+
+
+      if ((percentOfBankerInGame.current - (numberOfZero * (10 / nonZeroNumber))) >= percentOfBankerInGame.current) {
+        percentOfBankerInGame.current = percentOfBankerInGame.current === 0 ? 10 : percentOfBankerInGame.current - (numberOfZero * (10 / nonZeroNumber))
+      }
+      else {
+        if (percentOfBankerInGame.current === 0) { percentOfBankerInGame.current = 10; canIPutZeroInPercentOfBankerForBar = true }
+        else if (percentOfBankerInGame.current < 10) percentOfBankerInGame.current = 10
+      }
+
+      if ((percentOfPlayerInGame.current - (numberOfZero * (10 / nonZeroNumber))) >= percentOfPlayerInGame.current) {
+        percentOfPlayerInGame.current = percentOfPlayerInGame.current === 0 ? 10 : percentOfPlayerInGame.current - (numberOfZero * (10 / nonZeroNumber))
+      }
+      else {
+        if (percentOfPlayerInGame.current === 0) { percentOfPlayerInGame.current = 10; canIPutZeroInPercentOfPlayerForBar = true }
+        else if (percentOfPlayerInGame.current < 10) percentOfPlayerInGame.current = 10
+      }
+
+      if ((percentOfTieInGame.current - (numberOfZero * (10 / nonZeroNumber))) >= percentOfTieInGame.current) {
+        percentOfTieInGame.current = percentOfTieInGame.current === 0 ? 10 : percentOfTieInGame.current - (numberOfZero * (10 / nonZeroNumber))
+      }
+      else {
+        if (percentOfTieInGame.current === 0) { percentOfTieInGame.current = 10; canIPutZeroInPercentOfTieForBar = true }
+        else if (percentOfTieInGame.current < 10) percentOfTieInGame.current = 10
+      }
+
+      if (percentOfBankerInGame.current === 10 && canIPutZeroInPercentOfBankerForBar) percentOfBankerForBar.current = 0
+      if (percentOfPlayerInGame.current === 10 && canIPutZeroInPercentOfPlayerForBar) percentOfPlayerForBar.current = 0
+      if (percentOfTieInGame.current === 10 && canIPutZeroInPercentOfTieForBar) percentOfTieForBar.current = 0
 
       if (numberOfZero === 3) {
         percentOfBankerInGame.current = 33.3399
@@ -240,6 +265,40 @@ function Game() {
         percentOfTieForBar.current = 0
       }
     }
+    else if (percentOfBankerInGame.current <= 10 || percentOfPlayerInGame.current <= 10 || percentOfTieInGame.current <= 10) {
+
+      let numberOfPercentagesLessThanTen = 0
+      let numberOfPercentagesGreaterThanTen = 0
+
+      if (percentOfBankerInGame.current < 10) numberOfPercentagesLessThanTen++; else numberOfPercentagesGreaterThanTen++
+      if (percentOfPlayerInGame.current < 10) numberOfPercentagesLessThanTen++; else numberOfPercentagesGreaterThanTen++
+      if (percentOfTieInGame.current < 10) numberOfPercentagesLessThanTen++; else numberOfPercentagesGreaterThanTen++
+
+      const differenceToRightFillingOfTheBar = numberOfPercentagesLessThanTen * (10 / numberOfPercentagesGreaterThanTen)
+
+      if (percentOfBankerInGame.current - differenceToRightFillingOfTheBar >= percentOfBankerInGame.current) {
+        percentOfBankerInGame.current = percentOfBankerInGame.current <= 10 ? 10 : percentOfBankerInGame.current - differenceToRightFillingOfTheBar
+      }
+      else {
+        percentOfBankerInGame.current = percentOfBankerInGame.current <= 10 ? 10 : percentOfBankerInGame.current
+      }
+
+      if (percentOfPlayerInGame.current - differenceToRightFillingOfTheBar >= percentOfPlayerInGame.current) {
+        percentOfPlayerInGame.current = percentOfPlayerInGame.current <= 10 ? 10 : percentOfPlayerInGame.current - differenceToRightFillingOfTheBar
+      }
+      else {
+        percentOfPlayerInGame.current = percentOfPlayerInGame.current <= 10 ? 10 : percentOfPlayerInGame.current
+      }
+
+      if (percentOfTieInGame.current - differenceToRightFillingOfTheBar >= percentOfTieInGame.current) {
+        percentOfTieInGame.current = percentOfTieInGame.current <= 10 ? 10 : percentOfTieInGame.current - differenceToRightFillingOfTheBar
+      }
+      else {
+        percentOfTieInGame.current = percentOfTieInGame.current <= 10 ? 10 : percentOfTieInGame.current
+      }
+    }
+
+
     if (isFirstRender) forceUpdate()
   }
 
@@ -250,7 +309,6 @@ function Game() {
 
   return (
     <>
-
       <div className="h-[1080px] w-[1920px] bg-main">
         {cellsOfTopInGame.map(cel => (
           <img
@@ -298,7 +356,7 @@ function Game() {
           rowOfTop.current = 0
         }}
         className="text-white rounded-2xl text-3xl w-[120px] h-[50px] mx-8 bg-sky-600 hover:bg-red-400 hover:text-black transition-colors"
-      >LIMPAR
+      >CLEAR
       </button>
     </>
   )
