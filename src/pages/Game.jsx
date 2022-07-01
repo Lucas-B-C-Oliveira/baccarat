@@ -62,51 +62,15 @@ function Game() {
     4: Natural
   }
 
-
   const updateCurrentMatch = (newImage) => {
 
-    if (currentMatch.current > 107) return
+    if (currentMatch.current > 107) return /// TODO: Later, need implement a clear top table game
 
     if (newImage !== 4) {
       /// ### Update Main Bar
       numberOfBallsInGame.current = numberOfBallsInGame.current + 1
       updateBar(newImage, numberOfBallsInGame.current)
     }
-
-    // if (currentMatch.current === 0) {
-
-    //   /// ##### Top Cells
-
-    //   const posOfTopCell = {
-    //     x: `${X_STARTING_POS_OF_CELL}rem`,
-    //     y: `${Y_STARTING_POS_OF_TOP_CELL}rem`
-    //   }
-
-    //   const newCellOfTop = {
-    //     key: currentMatch.current,
-    //     position: posOfTopCell,
-    //     image: newImage,
-    //   }
-
-    //   /// ##### Bottom Cells
-
-    //   const posOfBottomCell = {
-    //     x: `${X_STARTING_POS_OF_CELL}rem`,
-    //     y: `${Y_STARTING_POS_OF_BOTTOM_CELL}rem`
-    //   }
-
-    //   const newCellOfBottom = {
-    //     key: currentMatch.current,
-    //     position: posOfBottomCell,
-    //     image: newImage,
-    //   }
-
-    //   setCellsOfBottomInGame(prevState => [...prevState, newCellOfBottom])
-    //   setCellsOfTopInGame(prevState => [...prevState, newCellOfTop])
-    //   oldBallOfBottomCell.current = newImage
-
-    // }
-    // else {
 
     if ((currentMatch.current % 6 === 0 && currentMatch.current != 0)) {
       columnOfTop.current = columnOfTop.current + 1
@@ -129,27 +93,16 @@ function Game() {
 
     rowOfTop.current = rowOfTop.current + 1
 
-    /// 5 - 11 - 17 - 23 - 29 - 35 - 41 - 47 - 53  59 - 65
-
-
-
-
     /// ##### Bottom Cells
 
     let newYPosOfBottomCell = 0
     let newXPosOfBottomCell = 0
-
-
-    if (columnOfBottom.current >= 35) {
-      // TODO: Need implement the function updateANewTableGame
-    }
 
     if (oldBallOfBottomCell.current === newImage) {
 
       lastLockedRowOfBottom.current = columnOfBottom.current > lastLockedColumnOfBottom.current ? 7 : lastLockedRowOfBottom.current
 
       if (rowOfBottom.current === lastLockedRowOfBottom.current) {
-
         /// ### Moving the ball to the LEFT, modifying the COLUMN
 
         columnOfBottom.current = columnOfBottom.current + 1
@@ -162,7 +115,6 @@ function Game() {
 
       }
       else {
-
         /// #### Put the ball in DOWN
 
         rowOfBottom.current = rowOfBottom.current + 1
@@ -175,19 +127,7 @@ function Game() {
 
     }
     else {
-
       /// Put the ball in LEFT
-
-      if (columnOfBottom.current >= 35) {
-        columnOfBottom.current = 0
-        rowOfBottom.current = 0
-        oldCorrectColumnOfBottomCell.current = 0
-        wasInALongSequenceOfEqualsBalls.current = false
-        needToLockANewRow.current = false
-        lastLockedRowOfBottom.current = 7
-        // TODO: Need implement the function updateANewTableGame
-
-      }
 
       rowOfBottom.current = initialRowFree.current
 
@@ -209,6 +149,27 @@ function Game() {
 
     }
 
+    let clearGameTableFromBottom = false
+
+
+    if (columnOfBottom.current >= 36) {
+      /// Clear the bottom game table
+
+      clearGameTableFromBottom = true
+
+      columnOfBottom.current = 0
+      rowOfBottom.current = 0
+      oldCorrectColumnOfBottomCell.current = 0
+      wasInALongSequenceOfEqualsBalls.current = false
+      needToLockANewRow.current = false
+      lastLockedRowOfBottom.current = 7
+      initialRowFree.current = 0
+
+
+      newYPosOfBottomCell = Y_STARTING_POS_OF_BOTTOM_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * rowOfBottom.current)
+      newXPosOfBottomCell = X_STARTING_POS_OF_CELL + (X_AND_Y_POS_MULTIPLIER_OF_TOP_CELL * columnOfBottom.current)
+    }
+
     const posOfBottomCell = {
       x: `${newXPosOfBottomCell}rem`,
       y: `${newYPosOfBottomCell}rem`
@@ -220,19 +181,15 @@ function Game() {
       image: newImage,
     }
 
-
-    //////_____________________
     oldBallOfBottomCell.current = newImage
+
+    if (clearGameTableFromBottom) setCellsOfBottomInGame([newCellOfBottom])
+    else setCellsOfBottomInGame(prevState => [...prevState, newCellOfBottom])
+
     setCellsOfTopInGame(prevState => [...prevState, newCellOfTop])
-    setCellsOfBottomInGame(prevState => [...prevState, newCellOfBottom])
-
-
-    // }
-
 
     currentMatch.current = currentMatch.current + 1
   }
-
 
   const updateBar = (newBall = 0, numberOfBallsInGame = 0, isFirstRender = false) => {
 
@@ -297,7 +254,7 @@ function Game() {
       <div className="h-[1080px] w-[1920px] bg-main">
         {cellsOfTopInGame.map(cel => (
           <img
-            key={currentMatch.current + 118}
+            key={currentMatch.current + (Math.random() * (236 - 119) + 119)}
             src={newImage[cel.image]}
             className='absolute h-[2.5rem] w-[2.5rem]'
             style={{
@@ -309,7 +266,7 @@ function Game() {
 
         {cellsOfBottomInGame.map(cel => (
           <img
-            key={currentMatch.current + 1}
+            key={currentMatch.current + (Math.random() * (118 - 1) + 1)}
             src={newImage[cel.image]}
             className='absolute h-[2.5rem] w-[2.5rem]'
             style={{
@@ -335,7 +292,7 @@ function Game() {
 
       <button
         onClick={() => {
-          setCellsOfTopInGame([])
+          setCellsOfTopInGame([{}])
           currentMatch.current = 0
           columnOfTop.current = 0
           rowOfTop.current = 0
