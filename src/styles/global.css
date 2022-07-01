@@ -1,5 +1,9 @@
 @tailwind base;
 @tailwind components;
+@font-face {
+  font-family: "Bars";
+  src: url("assets/fonts/TimesNewRoman.ttf") format("ttf");
+}
 @tailwind utilities;
 
 .redBar {
@@ -20,7 +24,6 @@
     #ae0c0b
   );
 }
-
 .blueBar {
   background-image: linear-gradient(
     #909ee7,

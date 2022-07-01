@@ -337,9 +337,9 @@ function Game() {
 
       <div className="relative top-[-50.9em] left-[62.7em]">
         <div className="overflow-hidden w-[858px] h-[54px] text-3xl flex rounded-[30px] border-solid border-slate-900 border-[1px]">
-          <div style={{ width: `${percentOfBankerInGame.current}%` }} className="rounded-l-[30px] redBar shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center">{`${Math.round(percentOfBankerForBar.current)}%`}</div>
-          <div style={{ width: `${percentOfPlayerInGame.current}%` }} className="blueBar shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center">{`${Math.round(percentOfPlayerForBar.current)}%`}</div>
-          <div style={{ width: `${percentOfTieInGame.current}%` }} className="rounded-r-[30px] greenBar shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center">{`${Math.round(percentOfTieForBar.current)}%`}</div>
+          <div style={{ width: `${percentOfBankerInGame.current}%` }} className="rounded-l-[30px] redBar shadow-none flex flex-col text-center whitespace-nowrap font-bars text-[40px] text-black  justify-center">{`${Math.round(percentOfBankerForBar.current)}%`}</div>
+          <div style={{ width: `${percentOfPlayerInGame.current}%` }} className="blueBar shadow-none flex flex-col text-center whitespace-nowrap font-bars text-[40px] text-black justify-center">{`${Math.round(percentOfPlayerForBar.current)}%`}</div>
+          <div style={{ width: `${percentOfTieInGame.current}%` }} className="rounded-r-[30px] greenBar shadow-none flex flex-col text-center whitespace-nowrap font-bars text-[40px] text-black justify-center">{`${Math.round(percentOfTieForBar.current)}%`}</div>
         </div>
       </div>
 
