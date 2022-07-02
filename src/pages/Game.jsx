@@ -4,6 +4,7 @@ import Player from '../assets/blue-ball.png'
 import Natural from '../assets/yellow-ball.png'
 import TieHands from '../assets/green-ball.png'
 import EmptyBall from '../assets/ball-empty.png'
+import Bar from '../components/Bar'
 
 function Game() {
 
@@ -39,11 +40,15 @@ function Game() {
 
   /// #### Bar Variables
 
+  const VISUAL_LIMIT_OF_BAR_FILL = 20
+
+  /// # All Bars
   const numberOfBankerInGame = useRef(0)
   const numberOfPlayerInGame = useRef(0)
   const numberOfTieInGame = useRef(0)
   const numberOfBallsInGame = useRef(0)
 
+  /// # Main Bar
   const percentOfBankerInGame = useRef(0)
   const percentOfPlayerInGame = useRef(0)
   const percentOfTieInGame = useRef(0)
@@ -51,6 +56,44 @@ function Game() {
   const percentOfBankerForBar = useRef(0)
   const percentOfPlayerForBar = useRef(0)
   const percentOfTieForBar = useRef(0)
+
+  const MODEL_OF_BARS_VARIABLES = {
+    percentOfBankerInGame: 0,
+    percentOfPlayerInGame: 0,
+    percentOfTieInGame: 0,
+    percentOfBankerForBar: 0,
+    percentOfPlayerForBar: 0,
+    percentOfTieForBar: 0,
+  }
+
+  const memoryForTheLastBars = useRef([MODEL_OF_BARS_VARIABLES, MODEL_OF_BARS_VARIABLES, MODEL_OF_BARS_VARIABLES, MODEL_OF_BARS_VARIABLES])
+
+  /// # Last Bar
+  const percentOfBankerInGameForLastBar = useRef(0)
+  const percentOfPlayerInGameForLastBar = useRef(0)
+  const percentOfTieInGameForLastBar = useRef(0)
+
+  const percentOfBankerForBarForLastBar = useRef(0)
+  const percentOfPlayerForBarForLastBar = useRef(0)
+  const percentOfTieForBarForLastBar = useRef(0)
+
+  /// # Last Bar 2 -> Penult Bar
+  const percentOfBankerInGameForPenultBar = useRef(0)
+  const percentOfPlayerInGameForPenultBar = useRef(0)
+  const percentOfTieInGameForPenultBar = useRef(0)
+
+  const percentOfBankerForBarForPenultBar = useRef(0)
+  const percentOfPlayerForBarForPenultBar = useRef(0)
+  const percentOfTieForBarForPenultBar = useRef(0)
+
+  /// # Last Bar 3 -> Antepenult Bar
+  const percentOfBankerInGameForAntepenultBar = useRef(0)
+  const percentOfPlayerInGameForAntepenultBar = useRef(0)
+  const percentOfTieInGameForAntepenultBar = useRef(0)
+
+  const percentOfBankerForBarForAntepenultBar = useRef(0)
+  const percentOfPlayerForBarForAntepenultBar = useRef(0)
+  const percentOfTieForBarForAntepenultBar = useRef(0)
 
   /// #### Balls Variables
 
@@ -94,7 +137,6 @@ function Game() {
     rowOfTop.current = rowOfTop.current + 1
 
     /// ##### Bottom Cells
-
     let newYPosOfBottomCell = 0
     let newXPosOfBottomCell = 0
 
@@ -150,7 +192,6 @@ function Game() {
     }
 
     let clearGameTableFromBottom = false
-
 
     if (columnOfBottom.current >= 36) {
       /// Clear the bottom game table
@@ -213,6 +254,7 @@ function Game() {
     percentOfPlayerForBar.current = percentOfPlayerInGame.current
     percentOfTieForBar.current = percentOfTieInGame.current
 
+
     if (percentOfBankerInGame.current === 0 || percentOfPlayerInGame.current === 0 || percentOfTieInGame.current === 0) {
 
       let numberOfZero = 0
@@ -227,33 +269,33 @@ function Game() {
       if (percentOfTieInGame.current === 0) numberOfZero++; else nonZeroNumber++
 
 
-      if ((percentOfBankerInGame.current - (numberOfZero * (10 / nonZeroNumber))) >= percentOfBankerInGame.current) {
-        percentOfBankerInGame.current = percentOfBankerInGame.current === 0 ? 10 : percentOfBankerInGame.current - (numberOfZero * (10 / nonZeroNumber))
+      if ((percentOfBankerInGame.current - (numberOfZero * (VISUAL_LIMIT_OF_BAR_FILL / nonZeroNumber))) >= percentOfBankerInGame.current) {
+        percentOfBankerInGame.current = percentOfBankerInGame.current === 0 ? VISUAL_LIMIT_OF_BAR_FILL : percentOfBankerInGame.current - (numberOfZero * (VISUAL_LIMIT_OF_BAR_FILL / nonZeroNumber))
       }
       else {
-        if (percentOfBankerInGame.current === 0) { percentOfBankerInGame.current = 10; canIPutZeroInPercentOfBankerForBar = true }
-        else if (percentOfBankerInGame.current < 10) percentOfBankerInGame.current = 10
+        if (percentOfBankerInGame.current === 0) { percentOfBankerInGame.current = VISUAL_LIMIT_OF_BAR_FILL; canIPutZeroInPercentOfBankerForBar = true }
+        else if (percentOfBankerInGame.current < VISUAL_LIMIT_OF_BAR_FILL) percentOfBankerInGame.current = VISUAL_LIMIT_OF_BAR_FILL
       }
 
-      if ((percentOfPlayerInGame.current - (numberOfZero * (10 / nonZeroNumber))) >= percentOfPlayerInGame.current) {
-        percentOfPlayerInGame.current = percentOfPlayerInGame.current === 0 ? 10 : percentOfPlayerInGame.current - (numberOfZero * (10 / nonZeroNumber))
+      if ((percentOfPlayerInGame.current - (numberOfZero * (VISUAL_LIMIT_OF_BAR_FILL / nonZeroNumber))) >= percentOfPlayerInGame.current) {
+        percentOfPlayerInGame.current = percentOfPlayerInGame.current === 0 ? VISUAL_LIMIT_OF_BAR_FILL : percentOfPlayerInGame.current - (numberOfZero * (VISUAL_LIMIT_OF_BAR_FILL / nonZeroNumber))
       }
       else {
-        if (percentOfPlayerInGame.current === 0) { percentOfPlayerInGame.current = 10; canIPutZeroInPercentOfPlayerForBar = true }
-        else if (percentOfPlayerInGame.current < 10) percentOfPlayerInGame.current = 10
+        if (percentOfPlayerInGame.current === 0) { percentOfPlayerInGame.current = VISUAL_LIMIT_OF_BAR_FILL; canIPutZeroInPercentOfPlayerForBar = true }
+        else if (percentOfPlayerInGame.current < VISUAL_LIMIT_OF_BAR_FILL) percentOfPlayerInGame.current = VISUAL_LIMIT_OF_BAR_FILL
       }
 
-      if ((percentOfTieInGame.current - (numberOfZero * (10 / nonZeroNumber))) >= percentOfTieInGame.current) {
-        percentOfTieInGame.current = percentOfTieInGame.current === 0 ? 10 : percentOfTieInGame.current - (numberOfZero * (10 / nonZeroNumber))
+      if ((percentOfTieInGame.current - (numberOfZero * (VISUAL_LIMIT_OF_BAR_FILL / nonZeroNumber))) >= percentOfTieInGame.current) {
+        percentOfTieInGame.current = percentOfTieInGame.current === 0 ? VISUAL_LIMIT_OF_BAR_FILL : percentOfTieInGame.current - (numberOfZero * (VISUAL_LIMIT_OF_BAR_FILL / nonZeroNumber))
       }
       else {
-        if (percentOfTieInGame.current === 0) { percentOfTieInGame.current = 10; canIPutZeroInPercentOfTieForBar = true }
-        else if (percentOfTieInGame.current < 10) percentOfTieInGame.current = 10
+        if (percentOfTieInGame.current === 0) { percentOfTieInGame.current = VISUAL_LIMIT_OF_BAR_FILL; canIPutZeroInPercentOfTieForBar = true }
+        else if (percentOfTieInGame.current < VISUAL_LIMIT_OF_BAR_FILL) percentOfTieInGame.current = VISUAL_LIMIT_OF_BAR_FILL
       }
 
-      if (percentOfBankerInGame.current === 10 && canIPutZeroInPercentOfBankerForBar) percentOfBankerForBar.current = 0
-      if (percentOfPlayerInGame.current === 10 && canIPutZeroInPercentOfPlayerForBar) percentOfPlayerForBar.current = 0
-      if (percentOfTieInGame.current === 10 && canIPutZeroInPercentOfTieForBar) percentOfTieForBar.current = 0
+      if (percentOfBankerInGame.current === VISUAL_LIMIT_OF_BAR_FILL && canIPutZeroInPercentOfBankerForBar) percentOfBankerForBar.current = 0
+      if (percentOfPlayerInGame.current === VISUAL_LIMIT_OF_BAR_FILL && canIPutZeroInPercentOfPlayerForBar) percentOfPlayerForBar.current = 0
+      if (percentOfTieInGame.current === VISUAL_LIMIT_OF_BAR_FILL && canIPutZeroInPercentOfTieForBar) percentOfTieForBar.current = 0
 
       if (numberOfZero === 3) {
         percentOfBankerInGame.current = 33.3399
@@ -265,41 +307,89 @@ function Game() {
         percentOfTieForBar.current = 0
       }
     }
-    else if (percentOfBankerInGame.current <= 10 || percentOfPlayerInGame.current <= 10 || percentOfTieInGame.current <= 10) {
+    else if (percentOfBankerInGame.current <= VISUAL_LIMIT_OF_BAR_FILL || percentOfPlayerInGame.current <= VISUAL_LIMIT_OF_BAR_FILL || percentOfTieInGame.current <= VISUAL_LIMIT_OF_BAR_FILL) {
 
       let numberOfPercentagesLessThanTen = 0
       let numberOfPercentagesGreaterThanTen = 0
 
-      if (percentOfBankerInGame.current < 10) numberOfPercentagesLessThanTen++; else numberOfPercentagesGreaterThanTen++
-      if (percentOfPlayerInGame.current < 10) numberOfPercentagesLessThanTen++; else numberOfPercentagesGreaterThanTen++
-      if (percentOfTieInGame.current < 10) numberOfPercentagesLessThanTen++; else numberOfPercentagesGreaterThanTen++
+      if (percentOfBankerInGame.current < VISUAL_LIMIT_OF_BAR_FILL) numberOfPercentagesLessThanTen++; else numberOfPercentagesGreaterThanTen++
+      if (percentOfPlayerInGame.current < VISUAL_LIMIT_OF_BAR_FILL) numberOfPercentagesLessThanTen++; else numberOfPercentagesGreaterThanTen++
+      if (percentOfTieInGame.current < VISUAL_LIMIT_OF_BAR_FILL) numberOfPercentagesLessThanTen++; else numberOfPercentagesGreaterThanTen++
 
-      const differenceToRightFillingOfTheBar = numberOfPercentagesLessThanTen * (10 / numberOfPercentagesGreaterThanTen)
+      const differenceToRightFillingOfTheBar = numberOfPercentagesLessThanTen * (VISUAL_LIMIT_OF_BAR_FILL / numberOfPercentagesGreaterThanTen)
 
       if (percentOfBankerInGame.current - differenceToRightFillingOfTheBar >= percentOfBankerInGame.current) {
-        percentOfBankerInGame.current = percentOfBankerInGame.current <= 10 ? 10 : percentOfBankerInGame.current - differenceToRightFillingOfTheBar
+        percentOfBankerInGame.current = percentOfBankerInGame.current <= VISUAL_LIMIT_OF_BAR_FILL ? VISUAL_LIMIT_OF_BAR_FILL : percentOfBankerInGame.current - differenceToRightFillingOfTheBar
       }
       else {
-        percentOfBankerInGame.current = percentOfBankerInGame.current <= 10 ? 10 : percentOfBankerInGame.current
+        percentOfBankerInGame.current = percentOfBankerInGame.current <= VISUAL_LIMIT_OF_BAR_FILL ? VISUAL_LIMIT_OF_BAR_FILL : percentOfBankerInGame.current
       }
 
       if (percentOfPlayerInGame.current - differenceToRightFillingOfTheBar >= percentOfPlayerInGame.current) {
-        percentOfPlayerInGame.current = percentOfPlayerInGame.current <= 10 ? 10 : percentOfPlayerInGame.current - differenceToRightFillingOfTheBar
+        percentOfPlayerInGame.current = percentOfPlayerInGame.current <= VISUAL_LIMIT_OF_BAR_FILL ? VISUAL_LIMIT_OF_BAR_FILL : percentOfPlayerInGame.current - differenceToRightFillingOfTheBar
       }
       else {
-        percentOfPlayerInGame.current = percentOfPlayerInGame.current <= 10 ? 10 : percentOfPlayerInGame.current
+        percentOfPlayerInGame.current = percentOfPlayerInGame.current <= VISUAL_LIMIT_OF_BAR_FILL ? VISUAL_LIMIT_OF_BAR_FILL : percentOfPlayerInGame.current
       }
 
       if (percentOfTieInGame.current - differenceToRightFillingOfTheBar >= percentOfTieInGame.current) {
-        percentOfTieInGame.current = percentOfTieInGame.current <= 10 ? 10 : percentOfTieInGame.current - differenceToRightFillingOfTheBar
+        percentOfTieInGame.current = percentOfTieInGame.current <= VISUAL_LIMIT_OF_BAR_FILL ? VISUAL_LIMIT_OF_BAR_FILL : percentOfTieInGame.current - differenceToRightFillingOfTheBar
       }
       else {
-        percentOfTieInGame.current = percentOfTieInGame.current <= 10 ? 10 : percentOfTieInGame.current
+        percentOfTieInGame.current = percentOfTieInGame.current <= VISUAL_LIMIT_OF_BAR_FILL ? VISUAL_LIMIT_OF_BAR_FILL : percentOfTieInGame.current
       }
+    }
+
+    saveOldResultsToBars(percentOfBankerInGame.current, percentOfPlayerInGame.current, percentOfTieInGame.current, percentOfBankerForBar.current, percentOfPlayerForBar.current, percentOfTieForBar.current)
+
+    /// ## To the Other Bars
+    if (currentMatch.current > 0) {
+
+      /// ### Last Bar
+      percentOfBankerInGameForLastBar.current = memoryForTheLastBars.current[1].percentOfBankerInGame
+      percentOfPlayerInGameForLastBar.current = memoryForTheLastBars.current[1].percentOfPlayerInGame
+      percentOfTieInGameForLastBar.current = memoryForTheLastBars.current[1].percentOfTieInGame
+
+      percentOfBankerForBarForLastBar.current = memoryForTheLastBars.current[1].percentOfBankerInGame
+      percentOfPlayerForBarForLastBar.current = memoryForTheLastBars.current[1].percentOfPlayerInGame
+      percentOfTieForBarForLastBar.current = memoryForTheLastBars.current[1].percentOfTieInGame
+
+      /// ### Penult Bar
+      percentOfBankerInGameForPenultBar.current = memoryForTheLastBars.current[2].percentOfBankerInGame
+      percentOfPlayerInGameForPenultBar.current = memoryForTheLastBars.current[2].percentOfPlayerInGame
+      percentOfTieInGameForPenultBar.current = memoryForTheLastBars.current[2].percentOfTieInGame
+
+      percentOfBankerForBarForPenultBar.current = memoryForTheLastBars.current[2].percentOfBankerInGame
+      percentOfPlayerForBarForPenultBar.current = memoryForTheLastBars.current[2].percentOfPlayerInGame
+      percentOfTieForBarForPenultBar.current = memoryForTheLastBars.current[2].percentOfTieInGame
+
+      /// ### Antepenult Bar
+      percentOfBankerInGameForAntepenultBar.current = memoryForTheLastBars.current[3].percentOfBankerInGame
+      percentOfPlayerInGameForAntepenultBar.current = memoryForTheLastBars.current[3].percentOfPlayerInGame
+      percentOfTieInGameForAntepenultBar.current = memoryForTheLastBars.current[3].percentOfTieInGame
+
+      percentOfBankerForBarForAntepenultBar.current = memoryForTheLastBars.current[3].percentOfBankerInGame
+      percentOfPlayerForBarForAntepenultBar.current = memoryForTheLastBars.current[3].percentOfPlayerInGame
+      percentOfTieForBarForAntepenultBar.current = memoryForTheLastBars.current[3].percentOfTieInGame
     }
 
 
     if (isFirstRender) forceUpdate()
+  }
+
+  const saveOldResultsToBars = (percentOfBankerInGame, percentOfPlayerInGame, percentOfTieInGame, percentOfBankerForBar, percentOfPlayerForBar, percentOfTieForBar) => {
+
+    const newSave = {
+      percentOfBankerInGame: percentOfBankerInGame,
+      percentOfPlayerInGame: percentOfPlayerInGame,
+      percentOfTieInGame: percentOfTieInGame,
+      percentOfBankerForBar: percentOfBankerForBar,
+      percentOfPlayerForBar: percentOfPlayerForBar,
+      percentOfTieForBar: percentOfTieForBar
+    }
+
+    memoryForTheLastBars.current.pop()
+    memoryForTheLastBars.current.unshift(newSave)
   }
 
   useEffect(() => {
@@ -335,13 +425,62 @@ function Game() {
         }
       </div>
 
-      <div className="relative top-[-50.9em] left-[62.7em]">
-        <div className="overflow-hidden w-[858px] h-[54px] text-3xl flex rounded-[30px] border-solid border-slate-900 border-[1px]">
-          <div style={{ width: `${percentOfBankerInGame.current}%` }} className="rounded-l-[30px] redBar shadow-none flex flex-col text-center whitespace-nowrap font-bars text-[40px] text-black  justify-center">{`${Math.round(percentOfBankerForBar.current)}%`}</div>
-          <div style={{ width: `${percentOfPlayerInGame.current}%` }} className="blueBar shadow-none flex flex-col text-center whitespace-nowrap font-bars text-[40px] text-black justify-center">{`${Math.round(percentOfPlayerForBar.current)}%`}</div>
-          <div style={{ width: `${percentOfTieInGame.current}%` }} className="rounded-r-[30px] greenBar shadow-none flex flex-col text-center whitespace-nowrap font-bars text-[40px] text-black justify-center">{`${Math.round(percentOfTieForBar.current)}%`}</div>
-        </div>
-      </div>
+      <Bar
+        xPosition={62.7}
+        yPosition={-50.9}
+        width={53.625}
+        height={3.375}
+        font={'font-bars'}
+        fontSize={3}
+        percentOfBankerInGame={percentOfBankerInGame.current}
+        percentOfPlayerInGame={percentOfPlayerInGame.current}
+        percentOfTieInGame={percentOfTieInGame.current}
+        percentOfBankerForBar={percentOfBankerForBar.current}
+        percentOfPlayerForBar={percentOfPlayerForBar.current}
+        percentOfTieForBar={percentOfTieForBar.current} />
+
+      <Bar
+        xPosition={34.1}
+        yPosition={-18.8}
+        width={38.7}
+        height={2.7}
+        font={'font-bars'}
+        fontSize={2}
+        percentOfBankerInGame={percentOfBankerInGameForLastBar.current}
+        percentOfPlayerInGame={percentOfPlayerInGameForLastBar.current}
+        percentOfTieInGame={percentOfTieInGameForLastBar.current}
+        percentOfBankerForBar={percentOfBankerForBarForLastBar.current}
+        percentOfPlayerForBar={percentOfPlayerForBarForLastBar.current}
+        percentOfTieForBar={percentOfTieForBarForLastBar.current} />
+
+      <Bar
+        xPosition={34.1}
+        yPosition={-15.6}
+        width={38.7}
+        height={2.7}
+        font={'font-bars'}
+        fontSize={2}
+        percentOfBankerInGame={percentOfBankerInGameForPenultBar.current}
+        percentOfPlayerInGame={percentOfPlayerInGameForPenultBar.current}
+        percentOfTieInGame={percentOfTieInGameForPenultBar.current}
+        percentOfBankerForBar={percentOfBankerForBarForPenultBar.current}
+        percentOfPlayerForBar={percentOfPlayerForBarForPenultBar.current}
+        percentOfTieForBar={percentOfTieForBarForPenultBar.current} />
+
+      <Bar
+        xPosition={34.1}
+        yPosition={-12.8}
+        width={38.7}
+        height={2.7}
+        font={'font-bars'}
+        fontSize={2}
+        percentOfBankerInGame={percentOfBankerInGameForAntepenultBar.current}
+        percentOfPlayerInGame={percentOfPlayerInGameForAntepenultBar.current}
+        percentOfTieInGame={percentOfTieInGameForAntepenultBar.current}
+        percentOfBankerForBar={percentOfBankerForBarForAntepenultBar.current}
+        percentOfPlayerForBar={percentOfPlayerForBarForAntepenultBar.current}
+        percentOfTieForBar={percentOfTieForBarForAntepenultBar.current} />
+
 
       <button onClick={() => updateCurrentMatch(1)} className="text-white rounded-2xl text-3xl w-[120px] h-[50px] mx-2 bg-red-600 hover:bg-red-400 hover:text-black transition-colors">Banker</button>
       <button onClick={() => updateCurrentMatch(2)} className="text-white rounded-2xl text-3xl w-[120px] h-[50px] mx-2 bg-blue-600 hover:bg-blue-400 hover:text-black transition-colors">Player</button>
